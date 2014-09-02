@@ -1,0 +1,11 @@
+input ="/Users/pc/Desktop/Well1exp_batch/";
+list= getFileList(input);
+for (i = 0; i < list.length; i++)
+action(input, list[i]);
+function action(input, filename) {
+open(input + filename);
+makeRectangle(247, 102, 174, 152);
+run("Measure");
+close();
+}
+
