@@ -1,10 +1,10 @@
-input ="/Users/pc/Desktop/Well1exp_batch/";
+input ="/home/martin/Documents/3D-printed-oxygen-devices/data/openwell/081914/time-series1-batch";
 list= getFileList(input);
 for (i = 0; i < list.length; i++)
 action(input, list[i]);
 function action(input, filename) {
 open(input + filename);
-makeRectangle(247, 102, 174, 152);
+makeRectangle(86, 117, 350, 220);
 run("Measure");
 close();
 }
