@@ -30,15 +30,16 @@ print("pathmda:" + pathmda);
 
 pathss = pathmda +'sscal.nd'
 print("pathss:" + pathss);
+pathwetamb = pathmda +'wet-amb.nd'
 
-pathstacks = direxperiment+'stacks/'
+pathstacks = direxperiment+'stacks'+'/'
 print("pathstacks:" + pathstacks);
 
-run("Metamorph nd file (stack builder)", "select=&pathss first=1 last=10 6=well1 all_timepoints all_positions open=[&pathstacks---Destination Folder---]");
+// Makes stacks in the stacks folder
+run("Metamorph nd file (stack builder)", "select=pathss first=1 last=10 6=well1 all_timepoints all_positions open=[pathstacks]");
+run("Metamorph nd file (stack builder)", "select=pathwetamb first=1 last=10 6=well1 all_timepoints all_positions open=[pathstacks]");
 
-// run("Metamorph nd file (stack builder)", "select=/Volumes/Untitled/imageJ-test/exp.nd first=1 last=10 6=well1 all_timepoints all_positions open=[path---Destination Folder---]");
-// run("Metamorph nd file (stack builder)", "select=/Volumes/Untitled/imageJ-test/wet-amb.nd first=1 last=10 6=well1 all_timepoints all_positions open=[/Volumes/Untitled/imageJ-test/---Destination Folder---]");
-// experiment directory: /Users/martinbrennan/Desktop/test-data/
+
 
 ////////////////////////////////////////////////////////////
 // code copied that lists file names
