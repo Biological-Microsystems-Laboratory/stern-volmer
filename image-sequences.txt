@@ -1,0 +1,56 @@
+/////////////////////////////////////////////////////////////////
+// gets folders
+
+// direxperiment = getDirectory("Choose the Experiment Directory ");
+// uncomment above to prompt user to pick the directory
+direxperiment = "/Users/martinbrennan/Desktop/this/"
+
+
+print("experiment directory: " + direxperiment);
+
+pathstacks = direxperiment+'stacks'+'/'
+print("pathstacks:" + pathstacks);
+
+/////////////////////////////////////////////////////////////////
+
+
+
+// Makes directories for image sequences
+//list = getFileList(pathstacks);
+//  for (i=0; i<list.length; i++)
+//      File.makeDirectory(pathstacks+'sswell'+(i+1));
+/////////////////////////////////////////////////////////////
+
+//Concatenate stacks
+// i=7
+// string = toString(i)+".tif"
+// print(string)
+list = getFileList(pathstacks);
+for (i=0; i<list.length; i++) {
+	  string = toString(i)+".tif";
+        if (endsWith(list[i],string));
+		     print(i+".tif");
+//		     open(list[i]);
+//             file = list[i];
+//             open(pathstacks+file);
+}
+// open(pathstacks+"_sscal_well1.tif");
+
+// 		  print(list[i]);
+//list = getFileList(pathstacks);
+//  for (i=0; i<list.length; i++)
+//if (endsWith(list[i], "/"))
+
+
+
+// File.makeDirectory(pathstacks+'sswell1');
+// pathwell1ss=pathstacks+'sswell1'
+// print("pathwell1ss:" + pathwell1ss);
+
+
+
+// open("/Users/martinbrennan/Desktop/this/stacks/_sscal_well1.tif");
+
+//run("Image Sequence... ", "format=TIFF name=ss start=0 digits=4 save=pathwell1ss");
+
+// run("Close");
