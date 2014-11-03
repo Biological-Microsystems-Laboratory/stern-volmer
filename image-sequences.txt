@@ -19,12 +19,10 @@ print("pathstacks:" + pathstacks);
 //list = getFileList(pathstacks);
 //  for (i=0; i<list.length; i++)
 //      File.makeDirectory(pathstacks+'sswell'+(i+1));
-/////////////////////////////////////////////////////////////
 
+/////////////////////////////////////////////////////////////
 //Concatenate stacks
-// i=7
-// string = toString(i)+".tif"
-// print(string)
+/////////////////////////////////////////////////////////////
 list = getFileList(pathstacks);
 for (j=1; j<7; j++) {
 	wellnumber = toString(j+".tif");
