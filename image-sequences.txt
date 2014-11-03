@@ -29,8 +29,12 @@ for (j=1; j<7; j++) {
 	for (i=0; i<list.length; i++){
 		if (endsWith(list[i],wellnumber)) {
 			print(j+","+list[i]);
+			open(list[i]);
 		}
 	}
+	run("Concatenate...", "all_open title=temp-stack");
+	saveAs("Tiff", pathstacks+"well"+wellnumber);
+	run("Close All");
 }
 // open(pathstacks+"_sscal_well1.tif");
 
