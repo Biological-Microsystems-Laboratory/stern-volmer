@@ -1,0 +1,18 @@
+dirinit = getDirectory("Select the directory with the MDA data");
+
+//Create file list
+Ê Ê Ê Ê list = getFileList(dirinit); 
+Ê Ê Ê Ê print("number of files in the Directory ="+ list.length);
+
+File.makeDirectory(dirinit+"raw-mda");
+
+for (i=0; i<list.length; i++)
+	File.rename(dirinit+ list[i],dirinit+"raw-mda"+ list[i])
+
+
+// File.makeDirectory(dirinit+"stacks");
+
+
+
+
+// pathss = dirmda
