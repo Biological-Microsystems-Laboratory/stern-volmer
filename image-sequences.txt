@@ -1,58 +1,27 @@
-/////////////////////////////////////////////////////////////////
-// gets folders
-
-// direxperiment = getDirectory("Choose the Experiment Directory ");
-// uncomment above to prompt user to pick the directory
 direxperiment = "/Users/martinbrennan/Desktop/this/"
-
-
 print("experiment directory: " + direxperiment);
 
 pathstacks = direxperiment+'stacks'+'/'
 print("pathstacks:" + pathstacks);
 
-/////////////////////////////////////////////////////////////////
-
-
-
-// Makes directories for image sequences
-//list = getFileList(pathstacks);
-//  for (i=0; i<list.length; i++)
-//      File.makeDirectory(pathstacks+'sswell'+(i+1));
-
 /////////////////////////////////////////////////////////////
 //Concatenate stacks from each position according to the ending position number
 /////////////////////////////////////////////////////////////
+
+// Make directory for concatenated stacks
+//File.makeDirectory(direxperiment+'concatenated-stacks');
+//pathcat = direxperiment+'concatenated-stacks'+'/'
+
 list = getFileList(pathstacks);
 for (j=1; j<list.length; j++) {
 	wellnumber = toString(j+".tif");
 	for (i=0; i<list.length; i++){
 		if (endsWith(list[i],wellnumber)) {
 			print(j+","+list[i]);
-			open(list[i]);
+			open(pathstacks+list[i]);
 		}
 	}
 	run("Concatenate...", "all_open title=temp-stack");
 	saveAs("Tiff", pathstacks+"well"+wellnumber);
 	run("Close All");
 }
-// open(pathstacks+"_sscal_well1.tif");
-
-// 		  print(list[i]);
-//list = getFileList(pathstacks);
-//  for (i=0; i<list.length; i++)
-//if (endsWith(list[i], "/"))
-
-
-
-// File.makeDirectory(pathstacks+'sswell1');
-// pathwell1ss=pathstacks+'sswell1'
-// print("pathwell1ss:" + pathwell1ss);
-
-
-
-// open("/Users/martinbrennan/Desktop/this/stacks/_sscal_well1.tif");
-
-//run("Image Sequence... ", "format=TIFF name=ss start=0 digits=4 save=pathwell1ss");
-
-// run("Close");
