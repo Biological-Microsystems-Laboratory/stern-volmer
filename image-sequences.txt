@@ -26,13 +26,13 @@ print("pathstacks:" + pathstacks);
 // string = toString(i)+".tif"
 // print(string)
 list = getFileList(pathstacks);
-for (i=0; i<list.length; i++) {
-	  string = toString(i)+".tif";
-        if (endsWith(list[i],string));
-		     print(i+".tif");
-//		     open(list[i]);
-//             file = list[i];
-//             open(pathstacks+file);
+for (j=1; j<7; j++) {
+	wellnumber = toString(j+".tif");
+	for (i=0; i<list.length; i++){
+		if (endsWith(list[i],wellnumber)) {
+			print(j+","+list[i]);
+		}
+	}
 }
 // open(pathstacks+"_sscal_well1.tif");
 
