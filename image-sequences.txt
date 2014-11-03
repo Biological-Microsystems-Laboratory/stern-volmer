@@ -21,7 +21,7 @@ print("pathstacks:" + pathstacks);
 //      File.makeDirectory(pathstacks+'sswell'+(i+1));
 
 /////////////////////////////////////////////////////////////
-//Concatenate stacks
+//Concatenate stacks from each position according to the ending position number
 /////////////////////////////////////////////////////////////
 list = getFileList(pathstacks);
 for (j=1; j<list.length; j++) {
