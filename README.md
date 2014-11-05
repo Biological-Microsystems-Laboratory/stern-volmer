@@ -14,3 +14,11 @@ save the results
 
 [nd-stack-builder](http://imagejdocu.tudor.lu/doku.php?id=plugin:inputoutput:nd_stacks_builder:start) must be installed for the imageJ macro to work
 
+todo
+----
+
+add prompt for user to draw a region of interest
+	http://imagejdocu.tudor.lu/doku.php?id=plugin:utilities:wait_for_user:start
+
+
+
