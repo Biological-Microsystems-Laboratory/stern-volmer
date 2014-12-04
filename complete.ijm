@@ -47,8 +47,8 @@ print("pathstacks:" + pathstacks);
 
 // Makes stacks in the stacks folder. You can either enter a path in the the select=, or leave it blank to prompt the user to select the nd files.
 // **The macro will quit if the prompt for the nd file is canceled.**
-run("Metamorph nd file (stack builder)", "select= first=1 last=10 6=well1 all_timepoints all_positions open=[pathstacks]"); //pathss
-run("Metamorph nd file (stack builder)", "select= first=1 last=10 6=well1 all_timepoints all_positions open=[pathstacks]"); //pathwetamb
+run("Metamorph nd file (stack builder)", "select= all_timepoints all_positions open=[pathstacks]"); //pathss
+run("Metamorph nd file (stack builder)", "select= all_timepoints all_positions open=[pathstacks]"); //pathexp
 
 
 /////////////////////////////////////////////////////////////
