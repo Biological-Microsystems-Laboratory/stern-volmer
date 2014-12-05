@@ -1,0 +1,26 @@
+pathstacks = getDirectory("Choose 'collected-stacks' directory");
+pathseq = getDirectory("Choose 'image-sequences' directory");
+
+inputseq = pathstacks;
+listseq = getFileList(pathstacks);
+for (j=0; j<listseq.length; j++) {           
+	action(inputseq, listseq[j]);
+	function action(inputseq, filename) {
+		open(inputseq + filename);
+		File.makeDirectory(pathseq+filename);
+		pathsaveseq = pathseq+filename+"/";
+		run("Image Sequence... ", "format=TIFF name=sequence start=0 digits=4 save=pathsaveseq");
+		close();
+		inputmeasure = pathsaveseq;
+		listmeasure = getFileList(pathsaveseq);
+		for (k = 0; k<listmeasure.length; k++) {
+			actionm(inputmeasure + listmeasure[k]);
+			function actionm(inputmeasure, filename) {
+				open(inputmeasure + filename);
+				run("Measure");
+				close();
+			}
+		
+		}
+	}
+}	
