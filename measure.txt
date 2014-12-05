@@ -1,0 +1,21 @@
+pathseq = getDirectory("Choose 'image-sequences' directory"); //defined in complete.ijm
+
+inputlist = pathseq;
+print("inputlist:" + inputlist);
+list = getFileList(pathseq);
+for (k = 0; k<list.length; k++) {
+	//print(list[k]);
+	inputmeasure = inputlist + list[k];
+	//print(inputmeasure);
+	listmeasure = getFileList(inputmeasure);
+	//print("length of listmeasure:" + listmeasure.length);
+	for (i = 0; i<listmeasure.length; i++) {
+		//print(listmeasure[i]);
+		action(inputmeasure, listmeasure[i]);
+		function action(inputmeasure, filename) {
+			open(inputmeasure + filename);
+			run("Measure");
+			close();
+		}
+	}
+}
