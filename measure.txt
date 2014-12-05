@@ -1,4 +1,5 @@
 pathseq = getDirectory("Choose 'image-sequences' directory"); //defined in complete.ijm
+pathresults = getDirectory('intensity-measurements') // defined in complete.ijm
 
 inputlist = pathseq;
 print("inputlist:" + inputlist);
@@ -18,4 +19,7 @@ for (k = 0; k<list.length; k++) {
 			close();
 		}
 	}
+saveAs("Results", pathresults+"well"+k+".csv");
+run("Clear Results");
+run("Close All");
 }
