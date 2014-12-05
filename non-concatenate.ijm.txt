@@ -11,16 +11,21 @@ for (j=0; j<listseq.length; j++) {
 		pathsaveseq = pathseq+filename+"/";
 		run("Image Sequence... ", "format=TIFF name=sequence start=0 digits=4 save=pathsaveseq");
 		close();
-		inputmeasure = pathsaveseq;
-		listmeasure = getFileList(pathsaveseq);
-		for (k = 0; k<listmeasure.length; k++) {
-			actionm(inputmeasure + listmeasure[k]);
-			function actionm(inputmeasure, filename) {
-				open(inputmeasure + filename);
-				run("Measure");
-				close();
-			}
 		
-		}
 	}
 }	
+
+
+inputmeasure = pathseq;
+listmeasure = getFileList(pathseq);
+print("Directory list:" listmeasure);
+
+//		for (k = 0; k<listmeasure.length; k++) {
+//			action2(inputmeasure + listmeasure[k]);
+//			function action2(inputmeasure, filename) {
+//				open(inputmeasure + filename);
+//				run("Measure");
+//				close();
+//			}
+//		
+//		}
