@@ -1,5 +1,6 @@
 pathstacks = getDirectory("Choose 'collected-stacks' directory");
 pathseq = getDirectory("Choose 'image-sequences' directory");
+pathresults = getDirectory('intensity-measurements') // defined in complete.ijm
 
 inputseq = pathstacks;
 listseq = getFileList(pathstacks);
@@ -15,17 +16,3 @@ for (j=0; j<listseq.length; j++) {
 	}
 }	
 
-
-inputmeasure = pathseq;
-listmeasure = getFileList(pathseq);
-print("Directory list:" listmeasure);
-
-//		for (k = 0; k<listmeasure.length; k++) {
-//			action2(inputmeasure + listmeasure[k]);
-//			function action2(inputmeasure, filename) {
-//				open(inputmeasure + filename);
-//				run("Measure");
-//				close();
-//			}
-//		
-//		}
