@@ -1,0 +1,26 @@
+dir = getDirectory("Choose a Directory ");
+  count = 1;
+  listFiles(dir); 
+
+  function listFiles(dir) {
+     list = getFileList(dir);
+     for (i=0; i<list.length; i++) {
+        if (endsWith(list[i], "/"))
+           listFiles(""+dir+list[i]);
+        else
+           print((count++) + ": " + dir + list[i]);
+           length=File.length(list[i]);
+           print(length);
+     }
+  }
+
+  function fileLength(dir) {
+     list = getFileList(dir);
+     for (i=0; i<list.length; i++){
+        if (endsWith(list[i], "/"))
+            listFiles(""+dir+list[i]);
+        else
+           length=File.length(list[i])
+           print(length);
+      }
+ }
