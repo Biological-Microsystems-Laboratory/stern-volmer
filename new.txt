@@ -29,7 +29,7 @@ for(j=0; j<listexp.length; j++){
           close();
           }
      }
-      saveAs("Results", pathcat+"well"+j+1+".csv");
-      run("Clear Results");
+      //saveAs("Results", pathcat+"well"+j+1+".csv");
+      //run("Clear Results");
       run("Close All");
 }
