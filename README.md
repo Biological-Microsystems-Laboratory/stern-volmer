@@ -7,7 +7,7 @@ Steps:
 
 2. Rename all well1 to well01, well2 to well02 etc.
 
-3. sperate calibration (ss), and experiment into different directories
+3. sperate calibration (ss), and experiment into different directories (make into end of stack-builder)
 
 4. Run measure macro (measure.txt)
 

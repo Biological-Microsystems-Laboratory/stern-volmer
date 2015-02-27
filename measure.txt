@@ -1,6 +1,7 @@
 dir= getDirectory("Choose a Directory");
 pathexp = dir+'exp/'
 pathss = dir+'ss/'
+// File.makeDirectory('concatenated-stacks')
 pathcat = dir+'concatenated-stacks/'
 //print(pathexp)
 
