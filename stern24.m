@@ -1,6 +1,6 @@
 load Results.csv
 
-r = reshape(Results(:,2), rows(Results)/24, 24);
+r = reshape(Results(:,3), rows(Results)/24, 24);
 save r.csv r
 ss_mean = mean(r(1:10,:));
 amb_mean = mean(r(11:15,:));
