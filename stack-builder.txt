@@ -39,3 +39,10 @@ pathstacks = direxperiment+'collected-stacks'+'/'
 // **The macro will quit if the prompt for the nd file is canceled.**
 run("Metamorph nd file (stack builder)", "select= all_timepoints all_positions open=[pathstacks]"); //pathss
 run("Metamorph nd file (stack builder)", "select= all_timepoints all_positions open=[pathstacks]"); //pathexp
+
+// Makes directory for the stacks to go
+File.makeDirectory(direxperiment+'collected-stacks/exp');
+// Makes directory for the stacks to go
+File.makeDirectory(direxperiment+'collected-stacks/ss');
+// Makes directory for the stacks to go
+File.makeDirectory(direxperiment+'collected-stacks/concatenated-stacks');
