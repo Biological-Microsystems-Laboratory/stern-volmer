@@ -1,16 +1,12 @@
 load data.csv % data.csv is a single column of intensity data, with the first 4 elements as the two calibration points and corresponding concentration.
 
-intensity_data=data;
+intensity_data=data; % enters loaded data into new matrix
 
-I1 = intensity_data(1); % this defines the calibration data based on the element position
+I1 = intensity_data(1); % this defines the calibration data based on the element position.
 X1 = intensity_data(2); % in the test-data elements 1 and 2 are the zero percent calibration point.
-I2 = intensity_data(3); % elements 3 and 4 are the 21-percent calibration point
+I2 = intensity_data(3); % elements 3 and 4 are the 21-percent calibration point.
 X2 = intensity_data(4);
 
-%I1 = z(1);
-%I2 = z(3);
-%X1 = z(2);
-%X2 = z(4);
 
 kt = (I2-I1)/((X1*I1)-(X2*I2)); % calculation for Ktau
 I0 = (1+kt*X1)*I1;              % intensity in absence of quencher(0% O2)
@@ -20,8 +16,11 @@ y1 = I0./(1+kt*x1);        % plots stern-volmer. Check to see if its fitting you
 plot(y1)
 
 oxygen_percent = ((I0./intensity_data(5:rows(intensity_data),:))-1)/kt;
-
 figure
 plot(oxygen_percent)
 
-%save data/050714/well1a.txt Opercent3
+int= I0./(x1.*kt+1);
+figure
+plot(int)
+
+%save percent.csv oxygen_percent % optional line for saving analyzed data to a file
