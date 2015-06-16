@@ -12,15 +12,17 @@ kt = (I2-I1)/((X1*I1)-(X2*I2)); % calculation for Ktau
 I0 = (1+kt*X1)*I1;              % intensity in absence of quencher(0% O2)
 
 x1 = 0:1:100;              % makes x values for plot of stern-volmer
-y1 = I0./(1+kt*x1);        % plots stern-volmer. Check to see if its fitting your calibration points.
-plot(y1)
+intensity_plot = I0./(1+kt*x1);        % plots stern-volmer. Check to see if its fitting your calibration points.
+stern_volmer_plot = x1*kt+1;
+plot(intensity_plot)
+plot(stern_volmer_plot)
 
 oxygen_percent = ((I0./intensity_data(5:rows(intensity_data),:))-1)/kt;
 figure
 plot(oxygen_percent)
 
-int= I0./(x1.*kt+1);
-figure
-plot(int)
+%int= I0./(x1.*kt+1);
+%figure
+%plot(int)
 
 %save percent.csv oxygen_percent % optional line for saving analyzed data to a file
