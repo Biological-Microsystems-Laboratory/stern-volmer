@@ -13,19 +13,31 @@ I0 = (1+kt*X1)*I1;              % intensity in absence of quencher(0% O2)
 
 x1 = 0:1:100;              % makes x values for plot of stern-volmer
 intensity_plot = I0./(1+kt*x1);        % plots stern-volmer. Check to see if its fitting your calibration points.
+subplot (2, 2, 1)
+[hAx,hline1,hline2] = plotyy(x1,intensity_plot,x1,stern_volmer_plot);
+xlabel("% O2")
+ylabel(hAx(1),"intensity") % left axis
+ylabel(hAx(2),"kt*X+1") % right axis
+
+
 stern_volmer_plot = x1*kt+1;
-plot(intensity_plot)
-figure
+subplot(2, 2, 2)
 plot(stern_volmer_plot)
+title("Stern-Volmer Plot")
+
 
 oxygen_percent = ((I0./intensity_data(5:rows(intensity_data),:))-1)/kt;
+subplot(2, 2, 3)
+plot(oxygen_percent)
+xlabel("time")
+ylabel("% O2")
+
 K=kt
 m=0.3
-oxygen_percent_corrected = exp((log(I0./intensity_data(5:rows(intensity_data),:))/K)/m)
-figure
-plot(oxygen_percent)
-figure
-plot(oxygen_percent_corrected)
+oxygen_percent_corrected = exp((log(I0./intensity_data(5:rows(intensity_data),:))/K)/m);
+
+%figure
+%plot(oxygen_percent_corrected)
 
 %int= I0./(x1.*kt+1);
 %figure
