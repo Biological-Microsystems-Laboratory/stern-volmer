@@ -4,6 +4,11 @@ syms f1 f2 ksv1 ksv2 x y v u
 
 % (f1/(1+ksv1*Q))+(f2/(1+ksv2*Q))== I/I0
 
+I0 = 2376.4
+I10 = 1000.8
+I15 = 846 % eyeball estimate
+I21 = 736.52
+
 eq1=(f1/(1+3*ksv1))+(f2/(1+3*ksv2))==5;
 eq2=(f1/(1+13*ksv1))+(f2/(1+13*ksv2))==15; 
 eq3=(f1/(1+23*ksv1))+(f2/(1+23*ksv2))==21; 

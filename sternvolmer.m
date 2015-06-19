@@ -1,3 +1,4 @@
+clear
 load data.csv % data.csv is a single column of intensity data, with the first 4 elements as the two calibration points and corresponding concentration.
 
 intensity_data=data; % enters loaded data into new matrix
@@ -12,6 +13,12 @@ kt = (I2-I1)/((X1*I1)-(X2*I2)); % calculation for Ktau
 I0 = (1+kt*X1)*I1;              % intensity in absence of quencher(0% O2)
 
 x1 = 0:1:100; % makes x values for plot of stern-volmer
+
+stern_volmer_plot = x1*kt+1;
+subplot(2, 2, 2)
+plot(stern_volmer_plot)
+title("Stern-Volmer Plot")
+
 intensity_plot = I0./(1+kt*x1); % plots intensity curve.
 subplot (2, 2, 1)
 [hAx,hline1,hline2] = plotyy(x1,intensity_plot,x1,stern_volmer_plot);
@@ -20,10 +27,7 @@ ylabel(hAx(1),"intensity") % left axis
 ylabel(hAx(2),"kt*X+1") % right axis
 
 
-stern_volmer_plot = x1*kt+1;
-subplot(2, 2, 2)
-plot(stern_volmer_plot)
-title("Stern-Volmer Plot")
+
 
 I = intensity_data(5:rows(intensity_data),:);
 oxygen_percent = ((I0./I)-1)/kt;
