@@ -15,9 +15,9 @@ I0 = (1+kt*X1)*I1;              % intensity in absence of quencher(0% O2)
 x1 = 0:1:100; % makes x values for plot of stern-volmer
 
 stern_volmer_plot = x1*kt+1;
-subplot(2, 2, 2)
-plot(stern_volmer_plot)
-title("Stern-Volmer Plot")
+%subplot(2, 2, 2)
+%plot(stern_volmer_plot)
+%title("Stern-Volmer Plot")
 
 intensity_plot = I0./(1+kt*x1); % plots intensity curve.
 subplot (2, 2, 1)
@@ -52,6 +52,14 @@ Q = (I.*(a+sqrt(b+c.^2)))/d;
 subplot(2, 2, 4)
 plot(Q)
 title('Oxygen corrected')
+
+corrected_SV_plot = 1./(((f1)./(1+ksv1.*x1))+((f2)./(1+ksv2.*x1))); 
+corrected_intensity_plot = I0.*(((f1)./(1+ksv1*x1))+((f2)./(1+ksv2*x1)));
+subplot(2, 2, 2)
+[hBx,hline3,hline4] = plotyy(x1,corrected_intensity_plot,x1,corrected_SV_plot);
+xlabel("% O2")
+ylabel(hBx(1),"intensity") % left axis
+ylabel(hBx(2),"I0*(f1/1+ksv1*x + f1/1+ksv2*x") % right axis
 
 %int= I0./(x1.*kt+1);
 %figure
