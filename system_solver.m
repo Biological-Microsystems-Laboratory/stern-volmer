@@ -1,6 +1,6 @@
 clear
 
-syms f1 f2 ksv1 ksv2 positive
+syms f1 f2 ksv1 ksv2 clear
 
 % (f1/(1+ksv1*Q))+(f2/(1+ksv2*Q))== I/I0
 
