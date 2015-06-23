@@ -53,13 +53,15 @@ subplot(2, 2, 4)
 plot(Q)
 title('Oxygen corrected')
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% Corrected Plots
 corrected_SV_plot = 1./(((f1)./(1+ksv1.*x1))+((f2)./(1+ksv2.*x1))); 
 corrected_intensity_plot = I0.*(((f1)./(1+ksv1*x1))+((f2)./(1+ksv2*x1)));
 subplot(2, 2, 2)
 [hBx,hline3,hline4] = plotyy(x1,corrected_intensity_plot,x1,corrected_SV_plot);
 xlabel("% O2")
 ylabel(hBx(1),"intensity") % left axis
-ylabel(hBx(2),"I0*(f1/1+ksv1*x + f1/1+ksv2*x") % right axis
+ylabel(hBx(2),"I0*(f1/1+ksv1*x + f1/1+ksv2*x)") % right axis
 
 %int= I0./(x1.*kt+1);
 %figure
