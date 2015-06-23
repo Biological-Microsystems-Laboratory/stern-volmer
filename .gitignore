@@ -53,4 +53,5 @@ coverage.xml
 docs/_build/
 
 # added manually
+*.asv
 octave-workspace
