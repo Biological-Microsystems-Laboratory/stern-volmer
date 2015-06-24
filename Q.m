@@ -1,9 +1,9 @@
 clear
-pkg load symbolic
+%pkg load symbolic
 % this code works in octave with the syms package
 
 syms f1 ksv1 Q f2 ksv2 I I0
-solve((f1/(1+ksv1*Q))+(f2/(1+ksv2*Q))== (I/I0), Q)
+symQ = solve((f1/(1+ksv1*Q))+(f2/(1+ksv2*Q))== (I/I0), Q)
 
 % here is the solution to Q:
 % Qsol = (I*(-I0*f1*ksv2 - I0*f2*ksv1 + I*ksv1 + I*ksv2 - sqrt(4*I*ksv1*ksv2*(I0*f1 + I0*f2 - I) + (I0*f1*ksv2 + I0*f2*ksv1 - I*ksv1 - I*ksv2)^2))/(2*ksv1*ksv2))
