@@ -41,14 +41,10 @@ f2 = 0.77;
 ksv1 = .1933;
 ksv2 = .1071;
 
-%a = -I0*f1*ksv2 - I0*f2*ksv1 + I*ksv1 + I*ksv2;
-%b = (4*I*ksv1*ksv2).*(I0*f1 + I0*f2 - I);
-%c = (I0*f1*ksv2 + I0*f2*ksv1 - I*ksv1 - I*ksv2);
-%d = 2*ksv1*ksv2;
-%Q = (I.*(a+sqrt(b+c.^2)))/d;
-%Q = (I*(-I0*f1*ksv2 - I0*f2*ksv1 + I*ksv1 + I*ksv2 - sqrt(4*I*ksv1*ksv2*(I0*f1 + I0*f2 - I) + (I0*f1*ksv2 + I0*f2*ksv1 - I*ksv1 - I*ksv2)^2))/(2*ksv1*ksv2))
-Q = ((I0.^2*f1.^2*ksv2.^2 + 2*I0.^2*f1*f2*ksv1*ksv2 + I0^.2*f2.^2*ksv1.^2 + 2*I0*I*f1*ksv1*ksv2 - 2*I0*I*f1*ksv2.^2 - 2*I0*I*f2*ksv1.^2 + 2*I0*I*f2*ksv1*ksv2 + I.^2*ksv1.^2 - 2*I.^2*ksv1*ksv2 + I.^2*ksv2.^2).^(1/2) - I*ksv2 - I*ksv1 + I0*f1*ksv2 + I0*f2*ksv1)/(2*I*ksv1*ksv2)
-%figure
+a =(I0^2*f1^2*ksv2^2 + 2*I0^2*f1*f2*ksv1*ksv2 + I0^2*f2^2*ksv1^2 + 2*I0*I*f1*ksv1*ksv2 - 2*I0*I*f1*ksv2^2 - 2*I0*I*f2*ksv1^2 + 2*I0*I*f2*ksv1*ksv2 + I.^2*ksv1^2 - 2*I.^2*ksv1*ksv2 + I.^2*ksv2^2);
+b = -I*ksv2 - I*ksv1 + I0*f1*ksv2 + I0*f2*ksv1;
+c = (2*I*ksv1*ksv2);
+Q = ((a.^(1/2))+b)./c;
 subplot(2, 2, 4)
 plot(Q)
 title('Oxygen corrected')
