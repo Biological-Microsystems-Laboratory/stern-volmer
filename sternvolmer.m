@@ -36,10 +36,10 @@ plot(oxygen_percent)
 xlabel('time')
 ylabel('% O2')
 
-f1 = 0.23;
-f2 = 0.77;
-ksv1 = .1933;
-ksv2 = .1071;
+f1 = 0;
+f2 = 0.99;
+ksv1 = 0.002318;
+ksv2 = 0.1436;
 
 a =(I0^2*f1^2*ksv2^2 + 2*I0^2*f1*f2*ksv1*ksv2 + I0^2*f2^2*ksv1^2 + 2*I0*I*f1*ksv1*ksv2 - 2*I0*I*f1*ksv2^2 - 2*I0*I*f2*ksv1^2 + 2*I0*I*f2*ksv1*ksv2 + I.^2*ksv1^2 - 2*I.^2*ksv1*ksv2 + I.^2*ksv2^2);
 b = -I*ksv2 - I*ksv1 + I0*f1*ksv2 + I0*f2*ksv1;
