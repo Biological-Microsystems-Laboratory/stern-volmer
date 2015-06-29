@@ -12,7 +12,7 @@ X2 = intensity_data(4);
 kt = (I2-I1)/((X1*I1)-(X2*I2)); % calculation for Ktau
 I0 = (1+kt*X1)*I1;              % intensity in absence of quencher(0% O2)
 
-x1 = 0:1:100; % makes x values for plot of stern-volmer
+x1 = 0:1:25; % makes x values for plot of stern-volmer
 
 stern_volmer_plot = x1*kt+1;
 %subplot(2, 2, 2)
@@ -36,10 +36,10 @@ plot(oxygen_percent)
 xlabel('time')
 ylabel('% O2')
 
-f1 = 0;
-f2 = 0.99;
-ksv1 = 0.002318;
-ksv2 = 0.1436;
+f1 =   0.9245;
+f2 = 1-f1;
+ksv1 = 0.1513;
+ksv2 = 7.357e-10;
 
 a =(I0^2*f1^2*ksv2^2 + 2*I0^2*f1*f2*ksv1*ksv2 + I0^2*f2^2*ksv1^2 + 2*I0*I*f1*ksv1*ksv2 - 2*I0*I*f1*ksv2^2 - 2*I0*I*f2*ksv1^2 + 2*I0*I*f2*ksv1*ksv2 + I.^2*ksv1^2 - 2*I.^2*ksv1*ksv2 + I.^2*ksv2^2);
 b = -I*ksv2 - I*ksv1 + I0*f1*ksv2 + I0*f2*ksv1;
@@ -58,7 +58,8 @@ subplot(2, 2, 2)
 xlabel('% O2')
 ylabel(hBx(1),'intensity') % left axis
 ylabel(hBx(2),'I0*(f1/1+ksv1*x + f1/1+ksv2*x)') % right axis
-
+hold on
+[hBx,hline3,hline4] = plotyy(x1,corrected_intensity_plot,x1,stern_volmer_plot);
 %int= I0./(x1.*kt+1);
 %figure
 %plot(int)
