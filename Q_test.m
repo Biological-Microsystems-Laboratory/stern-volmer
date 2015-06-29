@@ -1,10 +1,10 @@
 clear
 I0=2376.4;
 I = [ 2376.4; 2148.6; 1000.8; 736.52;];
-f1 = .01;
-f2 = .99;
-ksv1 =  0.002318;
-ksv2 =  0.1436;
+f1 =  0.9245;
+f2 = 1-f1;
+ksv1 =  0.1513;
+ksv2 =    7.357e-10;
 a =(I0^2*f1^2*ksv2^2 + 2*I0^2*f1*f2*ksv1*ksv2 + I0^2*f2^2*ksv1^2 + 2*I0*I*f1*ksv1*ksv2 - 2*I0*I*f1*ksv2^2 - 2*I0*I*f2*ksv1^2 + 2*I0*I*f2*ksv1*ksv2 + I.^2*ksv1^2 - 2*I.^2*ksv1*ksv2 + I.^2*ksv2^2);
 b = -I*ksv2 - I*ksv1 + I0*f1*ksv2 + I0*f2*ksv1;
 c = (2*I*ksv1*ksv2);
