@@ -3,7 +3,7 @@ Stern-Volmer Analysis
 
 Fluorescence intensity measurements of an oxygen sensor are used to calculate oxygen concentration.
 
-<img src="images/standard.png" style="height: 25px;"/>
+<img src="images/standard.png" style="height: 12.5px;"/>
 <!---
 latex2png.com
 I_0/I=1+Ksv\cdot[Q]}
@@ -13,7 +13,7 @@ I0 is the intensity of the sensor in absence of oxygen, Ksv is the Stern-Volmer 
 
 Ksv can be solved for using an I0 and a second calibration point.
 
-<img src="images/Ksv.png" style="height: 50px;"/>
+<img src="images/Ksv.png" style="height: 25px;"/>
 <!---
 latex2png.com
 Ksv = \frac{I_0-I_c}{Q_0\cdot{I_0} - Q_c\cdot{I_c}}
@@ -36,7 +36,7 @@ Two-Site Model
 -----
 This model assumes two quenching environments. It is used to fit curved Stern-Vomer plots.
 
-<img src="images/two-site.png" style="height: 50px;"/>
+<img src="images/two-site.png" style="height: 25px;"/>
 <!---
 latex2png.com
 I/I_0=\frac{f_1}{1+Ksv_1\cdot[Q]}+\frac{f_2}{1+Ksv_2\cdot[Q]}
