@@ -43,7 +43,7 @@ I/I_0=\frac{f_1}{1+Ksv_1\cdot[Q]}+\frac{f_2}{1+Ksv_2\cdot[Q]}
 -->
 
 f1 and f2 are fractions that sum to 1. Each quenching environment has a respective Ksv.
-Calibration data at several points can be fitted to the model to yeild f1, f2, Ksv1, and Ksv2.
+Calibration data at several points can be fitted to the model to yield f1, f2, Ksv1, and Ksv2.
 
 <img src="images/two-site-plot.png" style="height: 500px;"/>
 
