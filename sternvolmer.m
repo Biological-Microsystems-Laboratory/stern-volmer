@@ -23,6 +23,8 @@ oxygen_percent = ((I0./I)-1)/kt;
 % plotting for standard S-V
 subplot (2, 1, 1)
 [hAx,hline1,hline2] = plotyy(x1,intensity_plot,x1,stern_volmer_plot);
+hline1.Color = 'r';
+hline2.Color = 'b';
 title('Standard Stern-Volmer and Intensity Plot')
 xlabel('% O2')
 ylabel(hAx(1),'intensity') % left axis
@@ -32,6 +34,7 @@ ylabel(hAx(2),'kt*X+1') % right axis
 subplot(2, 1, 2)
 plot(oxygen_percent)
 title('Oxygen for Standard Stern-Volmer')
+
 xlabel('time')
 ylabel('% O2')
 
@@ -55,6 +58,8 @@ corrected_SV_plot = 1./(((f1)./(1+ksv1.*x1))+((f2)./(1+ksv2.*x1)));
 corrected_intensity_plot = I0.*(((f1)./(1+ksv1*x1))+((f2)./(1+ksv2*x1)));
 subplot(2, 1, 1)
 [hBx,hline3,hline4] = plotyy(x1,corrected_intensity_plot,x1,corrected_SV_plot);
+hline3.LineStyle = ':';
+hline4.LineStyle = ':';
 title('Stern-Volmer Plot from Two-Site Model')
 xlabel('% O2')
 ylabel(hBx(1),'intensity') % left axis
