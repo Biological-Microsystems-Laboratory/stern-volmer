@@ -31,13 +31,13 @@ I2 = calibration(number_of_calibration_points,:);
 X1 = calibration_tanks(1);
 X2 = calibration_tanks(number_of_calibration_points);
 kt = (I2-I1)./((X1*I1)-(X2*I2)); % calculation for Ktau
-I0 = I1;
+Io = I1;
 x1 = [0:1:25]'; % makes x values for plot of stern-volmer
 %stern_volmer_plot = x1*kt+1; % plots I0/I Vs oxygen
 %intensity_plot = I0./(1+kt*x1); % plots intensity(I) Vs oxygen
 
 for i = 1:24
-    oxygen_percent(:,i) = ((I0(i)./exp(:,i))-1)/kt(i);
+    oxygen_percent(:,i) = ((Io(i)./exp(:,i))-1)/kt(i);
 end
 
 hold on
@@ -50,9 +50,26 @@ hold off
 Q = calibration_tanks';
 for i = 1:24
     I = calibration(:,i);
+    I0 = calibration(i);
     % (f1/(1+ksv1*Q))+(1-f1/(1+ksv2*Q))== I/I0 ; f1+f2=1, f1=1-f2 f2=1-f1
-    g = fittype('2376.4*((f1/(1+ksv1*Q))+((1-f1)/(1+ksv2*Q)))',...
-            'independent',{'Q'},'dependent','I')
-    myfit = fit(Q,I,g,'lower',[0 0 0],'upper',[1 inf inf]);
+    g = fittype('I0*((f1/(1+ksv1*Q))+((1-f1)/(1+ksv2*Q)))',...
+            'independent',{'Q'},'dependent','I','problem','I0');
+    myfit = fit(Q,I,g,'problem',I0,'lower',[0 0 0],'upper',[1 inf inf]);
     coeff_twosite(:,i) = coeffvalues(myfit)';
+    hold on
+    plot(myfit,Q,I)
+end
+
+for i = 1:24
+    coeff=coeff_twosite(:,i);
+    f1 = coeff(1);
+    f2 = 1-f1;
+    ksv1 = coeff(2);
+    ksv2 = coeff(3);
+    I0 = I1(i);
+    I = exp(:,i);
+    a =(I0^2*f1^2*ksv2^2 + 2*I0^2*f1*f2*ksv1*ksv2 + I0^2*f2^2*ksv1^2 + 2*I0*I*f1*ksv1*ksv2 - 2*I0*I*f1*ksv2^2 - 2*I0*I*f2*ksv1^2 + 2*I0*I*f2*ksv1*ksv2 + I.^2*ksv1^2 - 2*I.^2*ksv1*ksv2 + I.^2*ksv2^2);
+    b = -I*ksv2 - I*ksv1 + I0*f1*ksv2 + I0*f2*ksv1;
+    c = (2*I*ksv1*ksv2);
+    oxygen_percent_twosite(:,i) = ((a.^(1/2))+b)./c;
 end
