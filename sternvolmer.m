@@ -41,10 +41,10 @@ ylabel('% O2')
 
 %%%%%%%%%%%%%%%%%%%% TWO-SITE MODEL
 
-f1 =   0.9245;
+f1 =   0.07546;
 f2 = 1-f1;
-ksv1 = 0.1513;
-ksv2 = 7.357e-10;
+ksv1 = 3.54e-10;
+ksv2 = 0.1513;
 
 % Solving for Q
 a =(I0^2*f1^2*ksv2^2 + 2*I0^2*f1*f2*ksv1*ksv2 + I0^2*f2^2*ksv1^2 + 2*I0*I*f1*ksv1*ksv2 - 2*I0*I*f1*ksv2^2 - 2*I0*I*f2*ksv1^2 + 2*I0*I*f2*ksv1*ksv2 + I.^2*ksv1^2 - 2*I.^2*ksv1*ksv2 + I.^2*ksv2^2);
