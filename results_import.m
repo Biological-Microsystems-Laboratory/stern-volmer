@@ -54,7 +54,7 @@ for i = 1:24
     % (f1/(1+ksv1*Q))+(1-f1/(1+ksv2*Q))== I/I0 ; f1+f2=1, f1=1-f2 f2=1-f1
     g = fittype('I0*((f1/(1+ksv1*Q))+((1-f1)/(1+ksv2*Q)))',...
             'independent',{'Q'},'dependent','I','problem','I0');
-    myfit = fit(Q,I,g,'problem',I0,'lower',[0 0 0],'upper',[1 inf inf]);
+    myfit = fit(Q,I,g,'problem',I0,'lower',[0 0 0],'upper',[1 inf inf],'Start',[0, 0, 0]);
     coeff_twosite(:,i) = coeffvalues(myfit)';
     %hold on
     %plot(myfit,Q,I)
@@ -74,4 +74,5 @@ for i = 1:24
     oxygen_percent_twosite(:,i) = ((a.^(1/2))+b)./c;
 end
 figure
-plot(oxygen_percent_twosite)
+plot(oxygen_percent_twosite,'b-')
+plot(oxygen_percent,'r--')
