@@ -1,6 +1,7 @@
 clear
 load data.csv % data.csv is a single column of intensity data, with the first 4 elements as the two calibration points and corresponding concentration.
-
+load calibration.csv %
+calibration_tanks = [0, 1, 7.5, 15, 21]; %
 intensity_data=data; % enters loaded data into new matrix
 
 I1 = intensity_data(1); % this defines the calibration data based on the element position.
