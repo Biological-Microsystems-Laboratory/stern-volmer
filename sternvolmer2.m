@@ -35,4 +35,25 @@ ylabel('% O2')
 
 %%% Two-Site Stern-Volmer fitting
 Q = calibration_tanks';
-I = calibration_intensities(1);
+I = calibration_intensities;
+% This is the two-site model: (f1/(1+ksv1*Q))+(1-f1/(1+ksv2*Q))== I/I0 ; f1+f2=1, f1=1-f2 f2=1-f1
+g = fittype('I0*((f1/(1+ksv1*Q))+((1-f1)/(1+ksv2*Q)))',...
+            'independent',{'Q'},'dependent','I','problem','I0');
+myfit = fit(Q,I,g,'problem',I0,'lower',[0 0 0],'upper',[1 inf inf],'Start',[0, 0, 0]);
+coeff_twosite = coeffvalues(myfit)';
+%hold on
+figure   
+plot(myfit,Q,I) % plots the fitting
+
+%%%%% Calculation of oxygen from two site     
+f1 = coeff_twosite(1);
+f2 = 1-f1;
+ksv1 = coeff_twosite(2);
+ksv2 = coeff_twosite(3);
+I = timecourse_intensities;
+a =(I0^2*f1^2*ksv2^2 + 2*I0^2*f1*f2*ksv1*ksv2 + I0^2*f2^2*ksv1^2 + 2*I0*I*f1*ksv1*ksv2 - 2*I0*I*f1*ksv2^2 - 2*I0*I*f2*ksv1^2 + 2*I0*I*f2*ksv1*ksv2 + I.^2*ksv1^2 - 2*I.^2*ksv1*ksv2 + I.^2*ksv2^2);
+b = -I*ksv2 - I*ksv1 + I0*f1*ksv2 + I0*f2*ksv1;
+c = (2*I*ksv1*ksv2);
+oxygen_percent_twosite = ((a.^(1/2))+b)./c;
+figure
+plot(oxygen_percent_twosite)
