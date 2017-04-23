@@ -1,8 +1,4 @@
-Stern-Volmer Analysis
-
-=====================
-
-
+# Stern-Volmer Analysis
 
 Fluorescence intensity measurements of an oxygen sensor are used to calculate oxygen concentration.
 
@@ -66,9 +62,9 @@ Where x is a range of values from 1 to 100 for example
 
 
 
-Two-Site Model
+## Two-Site Model
 
------
+
 
 This model assumes two quenching environments. It is used to fit curved Stern-Vomer plots.
 
@@ -98,7 +94,7 @@ Calibration data at several points can be fitted to the model to yield f1, f2, K
 
 The plots for the two-site model are plotted along with the standard model.
 
-##Files:
+### Files:
 **sternvolmer.m** is example code that analyzes one set of intensity measurments and creates the plot in the readme.
 **results_import.m** imports and analyzes intensity measurments from and imageJ results output for multiple positions.
 
